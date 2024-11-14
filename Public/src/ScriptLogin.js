@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const userFound = Users.find(user => user.usuario === username && user.contraseña === password);
 
         if (userFound) {
-            window.location.href = "./Templates/Productos.html";
+            window.location.href = "../Public/Templates/productos.html";
         } else {
             alert("Usuario o contraseña incorrectos");
         }
