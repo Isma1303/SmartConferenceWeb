@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const userFound = Users.find(user => user.usuario === username && user.contraseña === password);
 
         if (userFound) {
-            window.location.href = "/Public/Templates/productos.html"; // Asegúrate de que esta ruta sea correcta
+            window.location.href = "./Templates/Productos.html";
         } else {
             alert("Usuario o contraseña incorrectos");
         }
     });
-});
+}); 

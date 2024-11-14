@@ -45,12 +45,28 @@ function ready() {
 }
 // pay Button function
 function buyButtonClicked() {
-    alert('Tu orden ha sido procesada')
-    var cartContent = document.getElementsByClassName('cart-content')[0]
-    while (cartContent.hasChildNodes()) {
-        cartContent.removeChild(cartContent.firstChild)
+    // Obtener el método de pago seleccionado
+    const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+    // Obtener el total actual
+    let total = parseFloat(document.getElementsByClassName('total-price')[0].innerText.replace("Q", ""));
+
+    // Si el método de pago es tarjeta, agregar el 5%
+    if (paymentMethod === 'tarjeta') {
+        total += total * 0.05; // Agregar 5% al total
     }
-    updateTotal()
+
+    // Actualizar el total en la interfaz
+    document.getElementsByClassName('total-price')[0].innerText = 'Q' + total.toFixed(2);
+
+    // Mostrar el total en el alert
+    alert(`Tu orden ha sido procesada. Total pagado: Q${total.toFixed(2)}`);
+
+    var cartContent = document.getElementsByClassName('cart-content')[0];
+    while (cartContent.hasChildNodes()) {
+        cartContent.removeChild(cartContent.firstChild);
+    }
+    updateTotal();
 }
 function removeCartItem(event) {
     var buttonClicked = event.target
