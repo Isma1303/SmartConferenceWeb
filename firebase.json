@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "./",  
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      {
+        "source": "/productos",  
+        "destination": "/Productos.html"  ,
+        "type" : "301"
+      }
+    ]
+  }
+}
