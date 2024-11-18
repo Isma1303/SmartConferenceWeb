@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(/Public/Img/loginprovi.jpg) no-repeat;
+    background: url(../Img/loginprovi.jpg) no-repeat;
 }
 
 .wrapper {

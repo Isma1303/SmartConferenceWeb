@@ -60,7 +60,7 @@ function buyButtonClicked() {
     document.getElementsByClassName('total-price')[0].innerText = 'Q' + total.toFixed(2);
 
     // Mostrar el total en el alert
-    alert(`Tu orden ha sido procesada. Total pagado: Q${total.toFixed(2)}`);
+    // alert(`Tu orden ha sido procesada. Total pagado: Q${total.toFixed(2)}`);
 
     var cartContent = document.getElementsByClassName('cart-content')[0];
     while (cartContent.hasChildNodes()) {

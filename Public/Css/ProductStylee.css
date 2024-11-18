@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    font-family: "Poppins", serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     scroll-padding-top: 2rem;
@@ -77,13 +77,19 @@ header {
     transition: 0.3s;
 }
 
+.cart-content {
+    max-height: 450px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
 .cart.active {
     right: 0;
 }
 
 .cart-title {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-top: 2rem;
 }
@@ -117,6 +123,7 @@ header {
 
 .cart-price {
     font-weight: 500;
+    font-size: 1.5rem;
 }
 
 .cart-quantity {
@@ -138,11 +145,12 @@ header {
     justify-content: flex-end;
     margin-top: 1.5rem;
     border-top: 1px solid var(--text-color);
+    font-size: 1.5rem;
 
 }
 
 .total-title {
-    font-size: 1.1rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
@@ -195,12 +203,15 @@ header {
 
 .product-box {
     position: relative;
+    border: 0.5px solid var(--main-color);
+
 }
 
 .product-box:hover {
     padding: 10px;
     border: 1px solid var(--text-color);
     transition: 0.4s;
+
 }
 
 .product-img {

@@ -3,9 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Lista de usuarios válidos
     const Users = [
-        { "usuario": "iLiquez", "contraseña": "password0" },
+        { "usuario": "iliquez", "contraseña": "adminuser" },
         { "usuario": "oCastro", "contraseña": "password1" },
-        { "usuario": "eMejia", "contraseña": "password2" }
+        { "usuario": "anaBriones", "contraseña": "useranaB@smart" },
+        { "usuario": "julioMonzon", "contraseña": "userjulioM@smart" },
+        { "usuario": "erickBriones", "contraseña": "usererickB@smart" },
+        { "usuario": "susyBriones", "contraseña": "usersusyB@smart" },
+        { "usuario": "maiteRendon", "contraseña": "usermaiteR@smart" },
+        { "usuario": "adauryGranados", "contraseña": "useradauryG@smart" },
+        { "usuario": "ericLiquez", "contraseña": "userericL@smart" },
+        { "franciscoPerez": "anaBriones", "contraseña": "userfranciscoP@smart" },
     ];
 
     form.addEventListener("submit", function (e) {
@@ -17,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const userFound = Users.find(user => user.usuario === username && user.contraseña === password);
 
         if (userFound) {
-            window.location.href = "./Templates/Productos.html";
+            window.location.href = "../templates/productos.html";
         } else {
             alert("Usuario o contraseña incorrectos");
         }
