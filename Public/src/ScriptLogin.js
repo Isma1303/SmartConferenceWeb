@@ -24,7 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const userFound = Users.find(user => user.usuario === username && user.contraseña === password);
 
         if (userFound) {
+<<<<<<< HEAD
             window.location.href = "../templates/productos.html";
+=======
+            window.location.href = "../Public/Templates/productos.html";
+>>>>>>> b2219171d777dfb611a57fb0396d4e84e254b4d7
         } else {
             alert("Usuario o contraseña incorrectos");
         }
