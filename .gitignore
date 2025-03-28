@@ -67,3 +67,13 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+*.env
+*.config
+config/*
+secrets/*
+node_modules/
+venv/
+*.swp
+.DS_Store
+local_settings.py
