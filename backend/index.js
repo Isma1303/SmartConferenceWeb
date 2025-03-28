@@ -15,11 +15,6 @@ const port = 3000;
 // Servir archivos estáticos desde la carpeta 'frontend'
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
-// Servir el archivo productos.html en la ruta inicial
-// app.get('/', (req, res) => {
-
-//   res.render(path.join(__dirname, '../frontend/public/src/templates/index.ejs'));
-// });
 // Rutas
 app.use('/', routes);
 
