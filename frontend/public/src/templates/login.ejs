@@ -4,30 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio de Sesión</title>
-    <link rel="stylesheet" href="./src/css/loginStyle.css" />
+    <link rel="stylesheet" href="/src/css/loginStyle.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
   </head>
   <body>
     <div>
       <div class="wrapper">
-        <form id="loginForm">
+        <form id="loginForm" method="POST" action="/auth/login">
           <h1>Iniciar Sesión</h1>
           <div class="input-box">
-            <label for="username">Usuario:</label>
             <input
               type="text"
               id="username"
               name="username"
-              placeholder="Usuario"
+              placeholder="Usuario o Email"
               required
             />
             <box-icon type="solid" name="user"></box-icon>
           </div>
-          <div class="input-box">
-            <label for="password">Contraseña:</label>
+          <div class="input-box password-container">
             <input
               type="password"
               id="password"
@@ -37,18 +39,14 @@
             />
             <box-icon type="solid" name="lock-alt"></box-icon>
           </div>
-          <div class="remember-forgot">
-            <label><input type="checkbox" />Recordarme</label>
-            <a href="#">Olvidaste tu Contraseña?</a>
-          </div>
 
-          <button type="submit" class="btn">Iniciar</button>
+          <button type="submit" class="btn">Iniciar Sesión</button>
           <div class="register-link">
-            <p>No tienes una cuenta? <a href="#">Registrate</a></p>
+            <p>¿No tienes una cuenta? <a href="/register">Regístrate</a></p>
           </div>
         </form>
       </div>
     </div>
-    <script src="./src/scripts/scriptLogin.js"></script>
+    <script src="/src/scripts/scriptLogin.js"></script>
   </body>
 </html>

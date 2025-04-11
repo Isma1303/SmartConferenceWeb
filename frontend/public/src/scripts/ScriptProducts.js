@@ -142,132 +142,132 @@ function updateTotal() {
 }
 
 
-        // Importar las funciones necesarias de Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+        // // Importar las funciones necesarias de Firebase
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        // import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
-        // Configuración de Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyAfCUIkzmvFID38aezo72XIRB3fVzodC2Q",
-            authDomain: "smartconference-2024.firebaseapp.com",
-            databaseURL: "https://smartconference-2024-default-rtdb.firebaseio.com",
-            projectId: "smartconference-2024",
-            storageBucket: "smartconference-2024.firebasestorage.app",
-            messagingSenderId: "495251658201",
-            appId: "1:495251658201:web:d0a66836866535d773b5c8"
-        };
+        // // Configuración de Firebase
+        // const firebaseConfig = {
+        //     apiKey: "AIzaSyAfCUIkzmvFID38aezo72XIRB3fVzodC2Q",
+        //     authDomain: "smartconference-2024.firebaseapp.com",
+        //     databaseURL: "https://smartconference-2024-default-rtdb.firebaseio.com",
+        //     projectId: "smartconference-2024",
+        //     storageBucket: "smartconference-2024.firebasestorage.app",
+        //     messagingSenderId: "495251658201",
+        //     appId: "1:495251658201:web:d0a66836866535d773b5c8"
+        // };
 
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
+        // // Inicializar Firebase
+        // const app = initializeApp(firebaseConfig);
+        // const db = getDatabase(app);
 
-        // Obtener el botón de compra
-        const buyButtons = document.getElementsByClassName("btn-buy");
-        // Inicializa un array para almacenar los productos seleccionados
-        let selectedProducts = [];
+        // // Obtener el botón de compra
+        // const buyButtons = document.getElementsByClassName("btn-buy");
+        // // Inicializa un array para almacenar los productos seleccionados
+        // let selectedProducts = [];
 
-        // Función para agregar un producto a la lista
-        function addProductToList(productTitle, productPrice) {
-            const product = {
-                title: productTitle,
-                price: parseFloat(productPrice.replace("Q", "")), // Convertir el precio a número
-                quantity: 1 // Cantidad por defecto
-            };
-            selectedProducts.push(product);
-            console.log('Producto agregado a la lista:', product);
-        }
+        // // Función para agregar un producto a la lista
+        // function addProductToList(productTitle, productPrice) {
+        //     const product = {
+        //         title: productTitle,
+        //         price: parseFloat(productPrice.replace("Q", "")), // Convertir el precio a número
+        //         quantity: 1 // Cantidad por defecto
+        //     };
+        //     selectedProducts.push(product);
+        //     console.log('Producto agregado a la lista:', product);
+        // }
 
-        // Función para actualizar el total dinámicamente
-        function updateTotal() {
-            const quantities = document.querySelectorAll('.cart-quantity');
-            let total = 0;
+        // // Función para actualizar el total dinámicamente
+        // function updateTotal() {
+        //     const quantities = document.querySelectorAll('.cart-quantity');
+        //     let total = 0;
 
-            quantities.forEach((quantity, index) => {
-                const quantityValue = parseInt(quantity.value) || 1; // Valor por defecto 1 si el campo está vacío
-                selectedProducts[index].quantity = quantityValue; // Actualiza la cantidad en el array
-                total += selectedProducts[index].price * quantityValue; // Calcula el total
-            });
+        //     quantities.forEach((quantity, index) => {
+        //         const quantityValue = parseInt(quantity.value) || 1; // Valor por defecto 1 si el campo está vacío
+        //         selectedProducts[index].quantity = quantityValue; // Actualiza la cantidad en el array
+        //         total += selectedProducts[index].price * quantityValue; // Calcula el total
+        //     });
 
-            // Actualizar el total en la interfaz
-            document.getElementsByClassName('total-price')[0].innerText = 'Q' + total.toFixed(2);
-        }
+        //     // Actualizar el total en la interfaz
+        //     document.getElementsByClassName('total-price')[0].innerText = 'Q' + total.toFixed(2);
+        // }
 
-        // Función para enviar la lista de productos y el total a Firebase
-        function sendPaymentToFirebase(paymentMethod, total) {
-            const paymentsRef = ref(db, 'Pagos/' + Date.now()); // Usar timestamp como ID único
+        // // Función para enviar la lista de productos y el total a Firebase
+        // function sendPaymentToFirebase(paymentMethod, total) {
+        //     const paymentsRef = ref(db, 'Pagos/' + Date.now()); // Usar timestamp como ID único
 
-            // Crear un objeto de pago
-            const paymentData = {
-                products: selectedProducts,
-                total: total,
-                paymentMethod: paymentMethod,
-            };
+        //     // Crear un objeto de pago
+        //     const paymentData = {
+        //         products: selectedProducts,
+        //         total: total,
+        //         paymentMethod: paymentMethod,
+        //     };
 
-            // Almacenar el pago en Firebase
-            set(paymentsRef, paymentData)
-                .then(() => {
-                    console.log('Pago enviado correctamente:', paymentData);
-                })
-                .catch((error) => {
-                    console.error('Error al enviar el pago:', error);
-                });
+        //     // Almacenar el pago en Firebase
+        //     set(paymentsRef, paymentData)
+        //         .then(() => {
+        //             console.log('Pago enviado correctamente:', paymentData);
+        //         })
+        //         .catch((error) => {
+        //             console.error('Error al enviar el pago:', error);
+        //         });
 
-            // Limpiar la lista de productos después de enviar
-            selectedProducts = [];
-        }
+        //     // Limpiar la lista de productos después de enviar
+        //     selectedProducts = [];
+        // }
 
-        // Función que se ejecuta al hacer clic en el botón de compra
-        function buyButtonClicked() {
-            const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value;
+        // // Función que se ejecuta al hacer clic en el botón de compra
+        // function buyButtonClicked() {
+        //     const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value;
 
-            if (!paymentMethod) {
-                alert('Por favor, selecciona un método de pago.');
-                return;
-            }
+        //     if (!paymentMethod) {
+        //         alert('Por favor, selecciona un método de pago.');
+        //         return;
+        //     }
 
-            // Actualizar el total antes de calcularlo
-            updateTotal();
+        //     // Actualizar el total antes de calcularlo
+        //     updateTotal();
 
-            // Calcular el total a partir de selectedProducts
-            let total = selectedProducts.reduce((acc, product) => acc + (product.price * product.quantity), 0);
+        //     // Calcular el total a partir de selectedProducts
+        //     let total = selectedProducts.reduce((acc, product) => acc + (product.price * product.quantity), 0);
 
-            // Añadir el cargo extra si se paga con tarjeta
-            if (paymentMethod === 'tarjeta') {
-                total += total * 0.05; // Agregar 5% al total
-            }
+        //     // Añadir el cargo extra si se paga con tarjeta
+        //     if (paymentMethod === 'tarjeta') {
+        //         total += total * 0.05; // Agregar 5% al total
+        //     }
 
-            alert(`Tu orden ha sido procesada. Total a pagar: Q${total.toFixed(2)}`);
-            sendPaymentToFirebase(paymentMethod, total);
+        //     alert(`Tu orden ha sido procesada. Total a pagar: Q${total.toFixed(2)}`);
+        //     sendPaymentToFirebase(paymentMethod, total);
 
-            const cartContent = document.getElementsByClassName('cart-content')[0];
-            while (cartContent.hasChildNodes()) {
-                cartContent.removeChild(cartContent.firstChild);
-            }
+        //     const cartContent = document.getElementsByClassName('cart-content')[0];
+        //     while (cartContent.hasChildNodes()) {
+        //         cartContent.removeChild(cartContent.firstChild);
+        //     }
 
-            // Limpiar el array de productos seleccionados
-            selectedProducts = [];
-        }
+        //     // Limpiar el array de productos seleccionados
+        //     selectedProducts = [];
+        // }
 
-        // Agregar evento a los inputs de cantidad
-        document.addEventListener('input', (event) => {
-            if (event.target.classList.contains('cart-quantity')) {
-                updateTotal();
-            }
-        });
+        // // Agregar evento a los inputs de cantidad
+        // document.addEventListener('input', (event) => {
+        //     if (event.target.classList.contains('cart-quantity')) {
+        //         updateTotal();
+        //     }
+        // });
 
-        // Configurar los botones de agregar al carrito
-        const addCartButtons = document.querySelectorAll('.add-cart');
-        addCartButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                const productBox = button.closest('.product-box');
-                const productTitle = productBox.querySelector('.product-title').innerText;
-                const productPrice = productBox.querySelector('.price').innerText;
+        // // Configurar los botones de agregar al carrito
+        // const addCartButtons = document.querySelectorAll('.add-cart');
+        // addCartButtons.forEach(button => {
+        //     button.addEventListener('click', function () {
+        //         const productBox = button.closest('.product-box');
+        //         const productTitle = productBox.querySelector('.product-title').innerText;
+        //         const productPrice = productBox.querySelector('.price').innerText;
 
-                addProductToList(productTitle, productPrice);
-            });
-        });
+        //         addProductToList(productTitle, productPrice);
+        //     });
+        // });
 
-        // Agregar evento al botón de compra
-        const payButton = document.querySelector('.btn-buy');
-        payButton.addEventListener('click', buyButtonClicked);
+        // // Agregar evento al botón de compra
+        // const payButton = document.querySelector('.btn-buy');
+        // payButton.addEventListener('click', buyButtonClicked);
 

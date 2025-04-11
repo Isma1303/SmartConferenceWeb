@@ -63,6 +63,46 @@ body {
     font-size: 20px;
 }
 
+.input-box {
+    position: relative;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    padding: 0;
+    z-index: 10;
+}
+
+.password-toggle-btn i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.password-toggle-btn:hover {
+    color: #ddd;
+}
+
+.password-toggle-btn:hover i {
+    color: #ddd;
+}
+
+/* Ensure boxicon doesn't overlap */
+.input-box box-icon {
+    z-index: 1;
+}
+
 .wrapper .remember-forgot {
     display: flex;
     justify-content: space-between;
@@ -85,6 +125,18 @@ body {
 }
 
 .wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 45px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+.wrapper .btnRegister {
     width: 100%;
     height: 45px;
     background: #fff;
